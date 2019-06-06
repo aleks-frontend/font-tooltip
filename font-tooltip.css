@@ -1,0 +1,30 @@
+.tooltip {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    padding: 5px 10px;
+    font-family: Tahoma, sans-serif;
+    font-size: 10px;
+    color: #000;
+    background: #e3e3e3;
+    border-radius: 3px;
+    transform: translate(-50%, -100%);
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 5px solid #e3e3e3;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.js-font-tooltip:hover .tooltip {
+    opacity: 1;
+}
