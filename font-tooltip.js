@@ -1,11 +1,13 @@
-function fontTooltip(showTooltip=false) {
+function fontTooltip(showTooltip=false, unit='px') {
   if ( !showTooltip ) return;
   const textBlocks = document.querySelectorAll('.js-font-tooltip');
   textBlocks.forEach(textBlock => {
     const style = window.getComputedStyle(textBlock);
-    const fontSize = style.getPropertyValue('font-size');
+    let fontSize = style.getPropertyValue('font-size');
     const fontFamily = style.getPropertyValue('font-family');
     const tooltip = document.createElement('div');
+
+    if ( unit == 'pt' ) fontSize = `${parseFloat(fontSize) * 0.75}pt`;
 
     tooltip.classList.add('tooltip');
     tooltip.innerHTML = `
