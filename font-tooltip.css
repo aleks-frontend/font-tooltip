@@ -1,16 +1,13 @@
 .tooltip {
-    position: absolute;
-    top: -5px;
-    left: 50%;
+    position: fixed;
     padding: 5px 10px;
     font-family: Tahoma, sans-serif;
     font-size: 10px;
     color: #000;
     background: #e3e3e3;
     border-radius: 3px;
-    transform: translate(-50%, -100%);
     transition: all 0.3s ease-in-out;
-    opacity: 0;
+    transform: translateX(-50%);
 }
 
 .tooltip::after {
@@ -25,6 +22,9 @@
     border-right: 5px solid transparent;
 }
 
-.js-font-tooltip:hover .tooltip {
-    opacity: 1;
+.tooltip--opposite::after {
+    top: auto;
+    bottom: 100%;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid #e3e3e3;
 }
